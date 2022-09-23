@@ -1,3 +1,8 @@
+<?php
+	// echo json_encode($orders);
+
+?>
+
 <div class="portlet box yellow">
 	<div class="portlet-title">
 		<div class="caption">
