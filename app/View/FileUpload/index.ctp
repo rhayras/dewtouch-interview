@@ -13,7 +13,7 @@
 		<h3>Import Form</h3>
 	</div>
 <?php
-echo $this->Form->create('FileUpload');
+echo $this->Form->create('FileUpload',array("enctype" => "multipart/form-data"));
 echo $this->Form->input('file', array('label' => 'File Upload', 'type' => 'file'));
 echo $this->Form->submit('Upload', array('class' => 'btn btn-primary'));
 echo $this->Form->end();
@@ -50,3 +50,10 @@ endforeach;
 		</tbody>
 	</table>
 </div>
+
+<script>
+	// To prevent inserting data from csv again if the page was reload using F5.
+	if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>

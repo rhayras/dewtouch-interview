@@ -8,12 +8,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach($records as $record):?>
+			<!-- <?php //foreach($records as $record):?>
 			<tr>
-				<td><?php echo $record['Record']['id']?></td>
-				<td><?php echo $record['Record']['name']?></td>
+				<td><?php //echo $record['Record']['id']?></td>
+				<td><?php //echo $record['Record']['name']?></td>
 			</tr>	
-			<?php endforeach;?>
+			<?php //endforeach;?> -->
 		</tbody>
 	</table>
 </div>
@@ -21,8 +21,10 @@
 <script>
 $(document).ready(function(){
 	$("#table_records").dataTable({
-
-	});
+        "bProcessing": true,
+        "bServerSide": true,
+        "sAjaxSource": "<?php echo $this->Html->Url(array('controller' => 'Record', 'action' => 'loadAjaxData')); ?>"
+    });
 })
 </script>
 <?php $this->end()?>

@@ -8,12 +8,21 @@
 			$this->setFlash('Listing Record page too slow, try to optimize it.');
 			
 			
-			$records = $this->Record->find('all');
+			// $records = $this->Record->find('all');
 			
-			$this->set('records',$records);
+			// $this->set('records',$records);
 			
 			
 			$this->set('title',__('List Record'));
+		}
+
+		public function loadAjaxData(){
+			
+			$this->modelClass = "Record";
+	        $this->autoRender = false;          
+	        $output = $this->Record->GetData();
+
+	        echo json_encode($output);
 		}
 		
 		
